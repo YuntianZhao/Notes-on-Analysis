@@ -1,0 +1,192 @@
+\setchapterstyle{kao}
+\setchapterpreamble[u]{\margintoc}
+\chapter{Prologue}
+\labch{prologue}
+
+\section{The language of set theory}
+
+
+\begin{definition}[Number systems]
+Our notation of the fundamental number systems is as follows: \\
+$\N$ the set of positive integers (not including zero) \\
+$\Z$ the set of integers \\
+$\Q$ the set of rational numbers \\
+$\R$ the set of real numbers \\
+$\C$ the set of complex numbers
+\end{definition}
+
+The family of all subsets of a set $X$ is denoted by:
+\begin{align}
+\mathcal{P}(x) = \{ E : E \subset X \}
+\end{align}
+
+\begin{align}
+\bigcup_{E \in \mathcal{E}} = \{ x : x\in E \text{ for some } E \in \mathcal{E} \} \\
+\bigcap_{E \in \mathcal{E}} = \{ x : x\in E \text{ for all } E \in \mathcal{E} \}
+\end{align}
+
+\begin{align}
+\mathcal{E} = \{ E_{\alpha} : \alpha \in A \} = \{E_{\alpha}\}_{\alpha \in A}
+\end{align}
+
+If $E_{\alpha} \cap E_{\beta} = \empty$ whenever $\alpha \ne \beta$, the sets $E_{\alpha}$ are called disjoint.
+
+The terms ``disjoint collection of sets'' and ``collection of disjoint sets'' are used interchangeably,
+
+\begin{align}
+\limsup E_n = \bigcap_{k=1}^{\infty} \bigcup_{n=k}^{\infty} E_n \\
+\liminf E_n = \bigcup_{k=1}^{\infty} \bigcap_{n=k}^{\infty} E_n
+\end{align}
+
+\begin{align}
+E \setminus F = \{ x : x \in E \text{ and } x \notin F \}
+\end{align}
+
+\begin{align}
+E \triangle F = (E \setminus F) \cup (F \setminus E)
+\end{align}
+
+\begin{align}
+E^c = X \setminus E
+\end{align}
+
+deMorgan's Laws:
+\begin{align}
+(\bigcup_{\alpha \in A} E_{\alpha})^{c} = \bigcap_{\alpha \in A} E_{\alpha}^{c} \\
+(\bigcap_{\alpha \in A} E_{\alpha})^{c} = \bigcup_{\alpha \in A} E_{\alpha}^{c}
+\end{align}
+
+If $X$ and $Y$ are sets, their Cartesian product $X \times Y$ is the set of all ordered pairs $(x, y)$ such that $x \in X$ and $y \in Y$. 
+
+A relation from $X$ to $Y$ is a subset of $X \times Y$.
+If $X=Y$, we speak of a relation on $X$.
+
+If $f: X \to Y$ and $g: Y \to Z$ are mappings, we denote by $g \circ f$ their composition $g \circ f: X \to Z$, $g \circ f (x) = g(f(x))$.
+
+\begin{align}
+f(D) = \{ f(x) : x \in D \} \\
+f^{-1}(E) = \{ x : f(x) \in E \}
+\end{align}
+
+The map $f^{-1}: \mathcal{P}(Y) \to \mathcal{P}(X)$ commutes with unions, intersections, and complements:
+\begin{align}
+f^{-1} (\bigcup_{\alpha \in A} E_{\alpha}) = \bigcup_{\alpha \in A} f^{-1}(E_{\alpha}) \\
+f^{-1} (\bigcap_{\alpha \in A} E_{\alpha}) = \bigcap_{\alpha \in A} f^{-1}(E_{\alpha}) \\
+f^{-1} (E^{c}) = (f^{-1}(E))^{c}
+\end{align}
+
+The direct image mapping $f: \mathcal{P}(X) \to \mathcal{P}(Y)$ commutes with unions, but in general not with intersections or complements.
+
+If $f: X \to Y$ is a mapping, $X$ is the domain of $f$, and $f(X)$ is the range of $f$.
+$f$ is injective if $f(x_1) = f(x_2)$ only when $x_1 = x_2$, surjective if $f(X) = Y$, and bijective if it is both injective and surjective.
+If $f$ is bijective, it has an inverse $f^{-1}: Y \to X$ such that $f^{-1} \circ f$ and $f \circ f^{-1}$ are the identity mappings on $X$ and $Y$, respectively.
+If $X \subset X$, we denote by $f|A$ the restriction of $f$ to $A$, $(f|A): A \to Y$, $(f|A)(x) = f(x)$ for $x \in A$.
+
+A sequence in a set $X$ is a mapping from N into X.
+
+\section{Orderings}
+
+\begin{definition}
+A partial ordering on a nonempty set $X$ is a relation $R$ on $X$ with the following properties:
+\begin{enumerate}
+    \item if $x R y$ and $y R z$ then $x R z$;
+    \item if $x R y$ and $y R x$ then $x = y$;
+    \item $x R x$ for all $x$.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[The Hausdorff Maximal Principle]
+Every partially ordered set has a maximal linearly ordered subset.
+\end{theorem}
+
+\begin{lemma}[Zorn's Lemma]
+If $X$ is a partially ordered set and every linearly ordered subset of $X$ has an upper bound, then $X$ has a maximal element.
+\end{lemma}
+
+\begin{theorem}[The well Ordering Principle]
+Every nonempty set $X$ can be well ordered.
+\end{theorem}
+
+\begin{theorem}[The Axiom of Choice]
+If $\{ X_{\alpha} \}_{\alpha \in A}$ is a nonempty collection of nonempty sets, then $\prod_{\alpha \in A} X_{\alpha}$ is nonempty.
+\end{theorem}
+
+\begin{corollary}
+If $\{ X_{\alpha} \}_{\alpha \in A}$ is a disjoint collection of nonempty sets, there is a set $Y \subset \cup_{\alpha \in A} X_{\alpha}$ such that $Y \cap X_{\alpha}$ contains precisely one element for each $\alpha \in A$.
+\end{corollary}
+
+\section{Cardinality}
+
+\begin{definition}
+If $X$ and $Y$ are nonempty sets, we define $\card (X) \le \card (Y)$, $\card (X) = \card (Y)$, $\card (X) \ge \card (Y)$ to mean that there exists $f: X \to Y$ which is injective, bijective, or surjective, respectively.
+\end{definition}
+
+\begin{definition}
+A set $X$ is called countable (or denumerable) if $\card (X) \le \card (\N)$.
+And $\card (X) = n$ iff $\card (X) = \card (\{ 1, \dots, n \})$.
+\end{definition}
+
+\begin{proposition}
+If $X$ and $Y$ are countable, so is $X \times Y$.
+\end{proposition}
+
+\begin{proposition}
+If $A$ is countable and $X_{\alpha}$ is countable for every $\alpha \in A$, then $\cup_{\alpha \in A} X_{\alpha}$ is countable.
+\end{proposition}
+
+\begin{proposition}
+If $X$ is countably infinite, then $\card(X) = \card(\N)$.
+\end{proposition}
+
+\begin{proposition}
+$\Z$ and $\Q$ are countable.
+\end{proposition}
+
+\begin{definition}
+A set $X$ is said to have the carinality of the continuum if $\card(X) = \card(\R) = \mathfrak{c}$.
+\end{definition}
+
+
+\begin{proposition}
+$\card(\mathcal{P}(\N)) = \mathfrak{c}$.
+\end{proposition}
+
+\begin{corollary}
+If $\card(X) \ge \mathfrak{c}$, then $X$ is uncountable.
+\end{corollary}
+
+\section{More about well ordered set}
+
+\begin{definition}
+If $x \in X$, the initial segment of $x$ is $I_x = \{ y \in X : y < x \}$.
+\end{definition}
+
+\section{The extended real number system}
+
+\begin{proposition}
+Every open set in $\R$ is a countable disjoint union of open intervals.
+\end{proposition}
+
+\section{Metric spaces}
+
+\begin{definition}[Metric]
+A metric on a set $X$ is a function $\rho : X \times X \to [0, \infty)$ such that 
+\begin{enumerate}
+    \item $\rho(x, y) = 0$ iff $x = y$;
+    \item $\rho(x, y) = \rho(y, x)$ for all $x, y \in X$;
+    \item $\rho(x, z) \le \rho (x, y) + \rho(y, z)$ for all $x, y, z \in X$.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}
+If $E$ is a subset of the metric space $(X, \rho)$, the following are equivalent:
+\begin{enumerate}
+    \item $E$ is complete and totally bounded.
+    \item (The Bolzano-Weierstrass Property) Every sequence in $E$ has a subsequence that converges to a point of $E$.
+    \item (The Heine-Borel Property) If $\{ V_{\alpha} \}_{\alpha \in A}$ is a cover of $E$ by open sets, there is a finite set $F \subset A$ such that $\{ V_{\alpha} \}_{\alpha \in F}$ covers $E$.
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+Every closed and bounded subset of $\R^n$ is compact.
+\end{theorem}

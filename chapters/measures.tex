@@ -115,12 +115,17 @@ A measure on $\mathcal{M}$ (or on $(X, \mathcal{M})$, or simply on $X$ if $\math
 \end{enumerate}
 \end{definition}
 
-\begin{definition}
+\begin{definition}[Finite measure]
 Let $(X, \mathcal{M}, \mu)$ be a measure space.
 If $\mu(X) < \infty$, $\mu$ is called finite.
 \end{definition}
 
-\begin{definition}
+\begin{definition}[$\sigma$-finite measure]
+Let $(X, \mathcal{M}, \mu)$ be a measure space.
+If $X = \bigcup_{j=1}^{\infty} E_j$ where $E_j \in \mathcal{M}$ and $\mu(E_j) < \infty$ for all $j$, $\mu$ is called $\sigma$-finite.
+\end{definition}
+
+\begin{definition}[Semifinite measure]
 Let $(X, \mathcal{M}, \mu)$ be a measure space.
 If for each $E \in \mathcal{M}$ with $\mu(E) = \infty$ there exists $F \in \mathcal{M}$ with $F \subset E$ and $0 < \mu(F) < \infty$, $\mu$ is called semifinite.
 \end{definition}
@@ -142,7 +147,28 @@ Let $(X, \mathcal{M}, \mu)$ be a measure space.
 \end{theorem}
 
 \begin{proof}
-    
+If $E \subset F$, then $\mu(F) = \mu(E) + \mu(F \setminus E) \ge \mu(E)$.
+
+Let $F_1 = E_1$, $F_j = E_j \setminus (\bigcup_{k=1}^{j-1} E_k)$.
+Then ${F_j}_{j=1}^{\infty}$ is disjoint and $\bigcup_{j=1}^{\infty} F_j = \bigcup_{j=1}^{\infty} E_j$.
+\begin{align}
+\mu( \bigcup_{j=1}^{\infty} E_j) = \mu( \bigcup_{j=1}^{\infty} F_j ) = \sum_{j=1}^{\infty} \mu(F_j) \le \sum_{j=1}^{\infty} \mu(E_j).
+\end{align}
+
+Setting $E_0 = \emptyset$, we have
+\begin{align}
+\mu( \bigcup_{j=1}^{\infty} E_j) &= \mu( \bigcup_{j=1}^{\infty} E_j \setminus E_{j-1}) = \sum_{j=1}^{\infty} \mu(E_j \setminus E_{j-1}) \\
+&= \lim_{n \to \infty} \sum_{j=1}^{n} \mu(E_j \setminus E_{j-1}) = \lim_{n \to \infty} \mu(E_n).
+\end{align}
+
+Let $F_j = E_1 \setminus E_j$, then $F_1 \subset F_2 \subset \cdots$ and $\mu(\bigcup_{j=1}^{\infty} F_j) = \lim_{j\to \infty} \mu(F_j)$.
+Also notice that $\mu(E_1) = \mu(F_j) + \mu(E_j)$ and $\bigcup_{j=1}^{\infty} F_j = E_1 \setminus \left( \bigcap_{j=1}^{\infty} E_j \right)$.
+\begin{align}
+\mu(E_1) &= \mu( \bigcap_{j=1}^{\infty} E_j ) + \mu(\bigcup_{j=1}^{\infty} F_j) \\
+&= \mu( \bigcap_{j=1}^{\infty} E_j ) + \lim_{j\to \infty} \mu(F_j) \\
+&= \mu( \bigcap_{j=1}^{\infty} E_j ) + \lim_{j\to \infty} [\mu(E_1) - \mu(E_j)].
+\end{align}
+Since $\mu(E_1) < \infty$, we may subtract it from both sides to yield the desired result. 
 \end{proof}
 
 \begin{definition}
@@ -164,12 +190,52 @@ Then $\bar{\mathcal{M}}$ is a $\sigma$-algebra, and there is a unique extension 
 \end{theorem}
 
 \begin{proof}
-    
+Since $\mathcal{M}$ and $\mathcal{N}$ are closed under countable unions, so is $\bar{\mathcal{M}}$.
+Next, we need to show that $\bar{\mathcal{M}}$ is closed under complements.
+If $E \cup F \in \bar{\mathcal{M}}$ where $E \in \mathcal{M}$ and $F \subset N \in \mathcal{N}$, we can assume that $E \cap N = \emptyset$.
+Then $E \cup F = (E \cup N) \cap (N^c \cup F)$, so $(E \cup F)^c = (E \cup N)^c \cup (N \setminus F)$ where $(E \cup N)^c \in \mathcal{M}$ and $(N \setminus F) \subset N$.
+Therefore, $(E \cup F)^c \in \bar{\mathcal{M}}$, and $\bar{\mathcal{M}}$ is a $\sigma$-algebra.
+
+TODO: Show that there is a unique extension $\bar{\mu}$ of $\mu$ to a complete measure on $\bar{\mathcal{M}}$.
 \end{proof}
+
+\begin{proposition}
+Every $\sigma$-finite measure is semifinite.
+\end{proposition}
+
+\begin{proof}
+Let $(X, \mathcal{M}, \mu)$ be a measure space.
+Suppose a $\sigma$-finite measure $\mu$ is not semifinite.
+So there exists $E \in \mathcal{M}$ such taht $\mu(E) = \infty$, and for any $F \in \mathcal{M}$ with $F \subset E$, we have $mu(F) \in \{ 0, \infty \}$.
+
+Since $\mu$ is $\sigma$-finite, there are $\{ E_j \}_{j=1}^{\infty} \subset \mathcal{M}$ such that $X = \bigcup_{j=1}^{\infty} E_j$ and $\mu(E_j) < \infty$, for any $j$.
+Then we have $E = \bigcup_{j=1}^{\infty} (E \cap E_j)$ and $\mu(E) \le \sum_{j=1}^{\infty} \mu(E \cap E_j)$ by subadditivity.
+Because $\mu(E \cap E_j) \le \mu(E_j) < \infty$ and $\mu(E \cap E_j) \in \{ 0, \infty \}$ as $(E \cap E_j) \subset E$, $\mu(E \cap E_j) = 0$.
+But then $\mu(E) = 0$, which leads to a contradiction.
+\end{proof}
+
+\begin{proposition}
+If $\mu_1, \dots, \mu_n$ are measures on $(X, \mathcal{M})$ and $a_1, \dots, a_n \in [0, \infty)$, then $\mu = \sum_{k=1}^{n} a_k \mu_k$ is a measure on $(X, \mathcal{M})$.
+\end{proposition}
+
+\begin{proposition}
+If $(X, \mathcal{M}, \mu)$ is a measure space and $E \in \mathcal{M}$, define $\mu_E(A) = \mu(A \cap E)$ for $A \in \mathcal{M}$.
+Then $\mu_E$ is a measure. 
+\end{proposition}
+
+\begin{proposition}
+If $(X, \mathcal{M}, \mu)$ is a measure space and $\{ E_j \}_{j=1}^{\infty} \subset \mathcal{M}$, then $\mu(\liminf E_j) \le \liminf \mu(E_j)$.
+Also, $\mu(\limsup E_j) \ge \limsup \mu(E_j)$ provided that $\mu(\bigcup_{j=1}^{\infty} E_j) < \infty$.
+\end{proposition}
+
+\begin{proposition}
+If $\mu$ is a semifinite measure and $\mu(E) = \infty$, for any $C > 0$ there exists $F \subset E$ with $C < \mu(F) < \infty$.
+\end{proposition}
 
 \section{Outer measures}
 
 \begin{definition}[Outer measure]
+\labdef{outer_measure}
 An outer measure on a nonempty set $X$ is a function $\mu^*: \mathcal{P}(X) \to [0, \infty]$ that satisfies
 \begin{enumerate}
     \item $\mu^*(\emptyset) = 0$;
@@ -191,8 +257,77 @@ Then, $\mu^*$ is an outer measure.
 
 \end{proof}
 
-\begin{theorem}[Caratheodory Theorem]
+\begin{definition}
+If $\mu^*$ is an outer measure on $X$, a set $A \subset X$ is called $\mu^*$-measurable if $\mu^*(E) = \mu^*(E \cap A) + \mu^*(E \cap A^c)$ for all $E \subset X$.
+\end{definition}
+
+The inequality $\mu^*(E) \le \mu^*(E \cap A) + \mu^*(E \cap A^c)$ holds for any $A$ and $E$ because of the subadditivity in \refdef{outer_measure}.
+So to prove that $A$ is $\mu^*$-measurable, it suffices to prove the reverse inequality. 
+The latter is trivial if $\mu^*(E) = \infty$, so we see that $A$ is is $\mu^*$-measurable iff $\mu^*(E) \ge \mu^*(E \cap A) + \mu^*(E \cap A^c)$ for all $E \subset X$ such that $\mu^*(E) < \infty$.
+
+\begin{theorem}[Caratheodory's Theorem]
+If $\mu^*$ is an outer measure on $X$, the collection $\mathcal{M}$ of $\mu^*$-measurable sets is a $\sigma$-algebra, and the restriction of $\mu^*$ to $\mathcal{M}$ is a complete measure.
 \end{theorem}
 
+\begin{proof}
+TODO
+
+Finally, if $\mu^*(A) = 0$, for any $E \subset X$ we have
+\begin{align}
+\mu^*(E) \le \mu^*(E \cap A) + \mu^*(E \cap A^c) = \mu^*(E \cap A^c) \le \mu^*(E),
+\end{align}
+so that $A \in \mathcal{M}$.
+Therefore, $\mu^*|\mathcal{M}$ is a complete measure.
+\end{proof}
+
 \begin{definition}[Premeasure]
+If $\mathcal{A} \subset \mathcal{P}(X)$ is an algebra, a function $\mu_0: \mathcal{A} \to [0, \infty]$ will be called a premeasure if
+\begin{enumerate}
+    \item $\mu_0(\emptyset) = 0$;
+    \item if $\{ A_j \}_{j=1}^{\infty}$ is a sequence of disjoint sets in $\mathcal{A}$ such that $\bigcup_{j=1}^{\infty} A_j \in \mathcal{A}$, then $\mu_0(\bigcup_{j=1}^{\infty} A_j) = \sum _{j=1}^{\infty} \mu_0(A_j)$.
+\end{enumerate}
 \end{definition}
+
+\begin{align}
+\mu^*(E) = \inf \left\{ \sum_{j=1}^{\infty} \mu_0(A_j) : A_j \in \mathcal{A}, E \subset \bigcup_{j=1}^{\infty} A_j \right\}
+\end{align}
+
+\begin{proposition}
+If $\mu_0$ is a premeasure on $\mathcal{A}$ and $\mu^*$ is defined by, then
+\begin{enumerate}
+    \item $\mu^*|\mathcal{A} = \mu_0$;
+    \item every set in $\mathcal{A}$ is $\mu^*$-measurable.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{theorem}
+
+\end{theorem}
+
+\begin{proof}
+    
+\end{proof}
+
+\section{Borel measures on the real line}
+
+In this section, we will construct a definitive theory for measuring subsets of $\R$ based on the idea that the measure of an interval is its length.
+We begin with a more general construction that yields a large family of measures on $\R$ whose domain is the Borel $\sigma$-algebra $\mathcal{B}_{\R}$; such measures are called Borel measures on $\R$.
+
+\begin{proposition}
+Let $F:\R \to \R$ be increasing and right continuous.
+If $(a_j, b_j]$ are disjoint h-intervals, let
+\begin{align}
+\mu_0 \left(\bigcup_{j=1}^{n} (a_j, b_j] \right) = \sum_{j=1}^{n} [F(b_j) - F(a_j)],
+\end{align}
+and let $\mu_0(\emptyset) = 0$.
+Then $\mu_0$ is a premeasure on the algebra $\mathcal{A}$.
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+

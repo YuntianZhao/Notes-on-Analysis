@@ -7,26 +7,26 @@
 \section{The language of set theory}
 
 \begin{definition}[Number systems]
-Our notation of the fundamental number systems is as follows: \\
-$\N$ the set of positive integers (not including zero) \\
-$\Z$ the set of integers \\
-$\Q$ the set of rational numbers \\
-$\R$ the set of real numbers \\
-$\C$ the set of complex numbers
+    Our notation of the fundamental number systems is as follows: \\
+    $\N$ the set of positive integers (not including zero) \\
+    $\Z$ the set of integers \\
+    $\Q$ the set of rational numbers \\
+    $\R$ the set of real numbers \\
+    $\C$ the set of complex numbers
 \end{definition}
 
 The family of all subsets of a set $X$ is denoted by:
 \begin{align}
-\mathcal{P}(x) = \{ E : E \subset X \}
+    \mathcal{P}(x) = \{ E : E \subset X \}
 \end{align}
 
 \begin{align}
-\bigcup_{E \in \mathcal{E}} = \{ x : x\in E \text{ for some } E \in \mathcal{E} \} \\
-\bigcap_{E \in \mathcal{E}} = \{ x : x\in E \text{ for all } E \in \mathcal{E} \}
+    \bigcup_{E \in \mathcal{E}} = \{ x : x\in E \text{ for some } E \in \mathcal{E} \} \\
+    \bigcap_{E \in \mathcal{E}} = \{ x : x\in E \text{ for all } E \in \mathcal{E} \}
 \end{align}
 
 \begin{align}
-\mathcal{E} = \{ E_{\alpha} : \alpha \in A \} = \{E_{\alpha}\}_{\alpha \in A}
+    \mathcal{E} = \{ E_{\alpha} : \alpha \in A \} = \{E_{\alpha}\}_{\alpha \in A}
 \end{align}
 
 If $E_{\alpha} \cap E_{\beta} = \empty$ whenever $\alpha \ne \beta$, the sets $E_{\alpha}$ are called disjoint.
@@ -34,29 +34,29 @@ If $E_{\alpha} \cap E_{\beta} = \empty$ whenever $\alpha \ne \beta$, the sets $E
 The terms ``disjoint collection of sets'' and ``collection of disjoint sets'' are used interchangeably,
 
 \begin{align}
-\limsup E_n = \bigcap_{k=1}^{\infty} \bigcup_{n=k}^{\infty} E_n \\
-\liminf E_n = \bigcup_{k=1}^{\infty} \bigcap_{n=k}^{\infty} E_n
+    \limsup E_n = \bigcap_{k=1}^{\infty} \bigcup_{n=k}^{\infty} E_n \\
+    \liminf E_n = \bigcup_{k=1}^{\infty} \bigcap_{n=k}^{\infty} E_n
 \end{align}
 
 \begin{align}
-E \setminus F = \{ x : x \in E \text{ and } x \notin F \}
+    E \setminus F = \{ x : x \in E \text{ and } x \notin F \}
 \end{align}
 
 \begin{align}
-E \triangle F = (E \setminus F) \cup (F \setminus E)
+    E \triangle F = (E \setminus F) \cup (F \setminus E)
 \end{align}
 
 \begin{align}
-E^c = X \setminus E
+    E^c = X \setminus E
 \end{align}
 
 deMorgan's Laws:
 \begin{align}
-(\bigcup_{\alpha \in A} E_{\alpha})^{c} = \bigcap_{\alpha \in A} E_{\alpha}^{c} \\
-(\bigcap_{\alpha \in A} E_{\alpha})^{c} = \bigcup_{\alpha \in A} E_{\alpha}^{c}
+    (\bigcup_{\alpha \in A} E_{\alpha})^{c} = \bigcap_{\alpha \in A} E_{\alpha}^{c} \\
+    (\bigcap_{\alpha \in A} E_{\alpha})^{c} = \bigcup_{\alpha \in A} E_{\alpha}^{c}
 \end{align}
 
-If $X$ and $Y$ are sets, their Cartesian product $X \times Y$ is the set of all ordered pairs $(x, y)$ such that $x \in X$ and $y \in Y$. 
+If $X$ and $Y$ are sets, their Cartesian product $X \times Y$ is the set of all ordered pairs $(x, y)$ such that $x \in X$ and $y \in Y$.
 
 A relation from $X$ to $Y$ is a subset of $X \times Y$.
 If $X=Y$, we speak of a relation on $X$.
@@ -64,15 +64,15 @@ If $X=Y$, we speak of a relation on $X$.
 If $f: X \to Y$ and $g: Y \to Z$ are mappings, we denote by $g \circ f$ their composition $g \circ f: X \to Z$, $g \circ f (x) = g(f(x))$.
 
 \begin{align}
-f(D) = \{ f(x) : x \in D \} \\
-f^{-1}(E) = \{ x : f(x) \in E \}
+    f(D) = \{ f(x) : x \in D \} \\
+    f^{-1}(E) = \{ x : f(x) \in E \}
 \end{align}
 
 The map $f^{-1}: \mathcal{P}(Y) \to \mathcal{P}(X)$ commutes with unions, intersections, and complements:
 \begin{align}
-f^{-1} (\bigcup_{\alpha \in A} E_{\alpha}) = \bigcup_{\alpha \in A} f^{-1}(E_{\alpha}) \\
-f^{-1} (\bigcap_{\alpha \in A} E_{\alpha}) = \bigcap_{\alpha \in A} f^{-1}(E_{\alpha}) \\
-f^{-1} (E^{c}) = (f^{-1}(E))^{c}
+    f^{-1} (\bigcup_{\alpha \in A} E_{\alpha}) = \bigcup_{\alpha \in A} f^{-1}(E_{\alpha}) \\
+    f^{-1} (\bigcap_{\alpha \in A} E_{\alpha}) = \bigcap_{\alpha \in A} f^{-1}(E_{\alpha}) \\
+    f^{-1} (E^{c}) = (f^{-1}(E))^{c}
 \end{align}
 
 The direct image mapping $f: \mathcal{P}(X) \to \mathcal{P}(Y)$ commutes with unions, but in general not with intersections or complements.
@@ -86,107 +86,306 @@ A sequence in a set $X$ is a mapping from $N$ into $X$.
 
 \section{Orderings}
 
-\begin{definition}
-A partial ordering on a nonempty set $X$ is a relation $R$ on $X$ with the following properties:
-\begin{enumerate}
-    \item if $x R y$ and $y R z$ then $x R z$;
-    \item if $x R y$ and $y R x$ then $x = y$;
-    \item $x R x$ for all $x$.
-\end{enumerate}
+\begin{definition}[Partial Ordering]
+    A partial ordering on a nonempty set $X$ is a relation $R$ on $X$ with the following properties:
+    \begin{enumerate}
+        \item if $x R y$ and $y R z$ then $x R z$;
+        \item if $x R y$ and $y R x$ then $x = y$;
+        \item $x R x$ for all $x$.
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    If $E$ is any set, then $\mathcal{P}(E)$ is partially ordered by inclusion.
+\end{example}
+
+\begin{definition}[Linear Ordering]
+    If a partial ordering R also satisfies
+    \begin{enumerate}
+        \item if $x, y \in X$, then either $x R y$ or $y R x$,
+    \end{enumerate}
+    then $R$ is called a linear (or total) ordering.
+\end{definition}
+
+\begin{definition}[Order Isomorphism]
+    \labdef{order_isomorphic}
+    Two partially ordered sets $X$ and $Y$ are said to be order isomorphic if there is a bijection $f: X \to Y$ such that $x_1 \le x_2$ iff $f(x_1) \le f(x_2)$.
+\end{definition}
+
+\begin{definition}[Well Ordering]
+    If $X$ is linearly ordered by $\le$ and every nonempty subset of $X$ has a minimal element, X is said to be well ordered by $\le$, and $\le$ is called a well ordering on $X$.   
 \end{definition}
 
 \begin{theorem}[The Hausdorff Maximal Principle]
-Every partially ordered set has a maximal linearly ordered subset.
+    \labthm{Hausdorff}
+    Every partially ordered set has a maximal linearly ordered subset.
 \end{theorem}
 
+This means that if $X$ is partially ordered by $\le$, there is a set $E \subset X$ that is linearly ordered by $\le$, such that no subset of $X$ that properly includes $E$ is linearly ordered by $\le$.
+
 \begin{lemma}[Zorn's Lemma]
-If $X$ is a partially ordered set and every linearly ordered subset of $X$ has an upper bound, then $X$ has a maximal element.
+    \lablemma{Zorn}
+    If $X$ is a partially ordered set and every linearly ordered subset of $X$ has an upper bound, then $X$ has a maximal element.
 \end{lemma}
 
+The Hausdorff Maximal Principle and Zorn's Lemma are equivalent.
+
+Clearly, the \refthm{Hausdorff} implies \reflemma{Zorn}.
+An upper bound for a maximal linearly ordered subset of $X$ is a maximal element of $X$.
+
+It is also not difficult to see \reflemma{Zorn} implies \refthm{Hausdorff}. 
+Let $X$ be an arbitrary partially ordered set and let $\mathcal{X}$ be the set of all linearly ordered subsets in $X$, ordered by inclusion.
+Then $\mathcal{X}$ is also partially ordered.
+We then need to show $\mathcal{X}$ satisfies the hypothesis of Zorn's Lemma.
+Because suppose $\mathcal{C} \subset \mathcal{X}$ is linearly ordered, then $\bigcup_{C \in \mathcal{C}} C$ is linearly ordered in $X$ and upper bounded.
+Thus, for any linearly ordered $\mathcal{C} \subset \mathcal{X}$, $\mathcal{C}$ is upper bounded.
+Then, according to Zorn's Lemma, $\mathcal{X}$ has a maximal element which is a maximal linearly ordered subset of $X$.
+
+
 \begin{theorem}[The well Ordering Principle]
-Every nonempty set $X$ can be well ordered.
+    \labthm{well_ordering}
+    Every nonempty set $X$ can be well ordered.
 \end{theorem}
 
 \begin{theorem}[The Axiom of Choice]
-If $\{ X_{\alpha} \}_{\alpha \in A}$ is a nonempty collection of nonempty sets, then $\prod_{\alpha \in A} X_{\alpha}$ is nonempty.
+    \labthm{axiom_of_choice}
+    If $\{ X_{\alpha} \}_{\alpha \in A}$ is a nonempty collection of nonempty sets, then $\prod_{\alpha \in A} X_{\alpha}$ is nonempty.
 \end{theorem}
 
+\begin{proof}
+    Let $X = \bigcup_{\alpha \in A} X_\alpha$.
+    So $X$ is nonempty and well ordered by \refthm{axiom_of_choice}, so we can pick a well ordering on $X$.
+    For $\alpha \in A$, let $f(\alpha)$ be the minimal element of $X_\alpha$.
+    Then $f \in \prod_{\alpha \in A} X_\alpha$.
+\end{proof}
+
 \begin{corollary}
-If $\{ X_{\alpha} \}_{\alpha \in A}$ is a disjoint collection of nonempty sets, there is a set $Y \subset \cup_{\alpha \in A} X_{\alpha}$ such that $Y \cap X_{\alpha}$ contains precisely one element for each $\alpha \in A$.
+    If $\{ X_{\alpha} \}_{\alpha \in A}$ is a disjoint collection of nonempty sets, there is a set $Y \subset \cup_{\alpha \in A} X_{\alpha}$ such that $Y \cap X_{\alpha}$ contains precisely one element for each $\alpha \in A$.
 \end{corollary}
+
+\begin{proof}
+    Take $Y = f(A)$ where $f \in \prod_{\alpha \in A} X_\alpha$.
+\end{proof}
 
 \section{Cardinality}
 
 \begin{definition}
-If $X$ and $Y$ are nonempty sets, we define $\card (X) \le \card (Y)$, $\card (X) = \card (Y)$, $\card (X) \ge \card (Y)$ to mean that there exists $f: X \to Y$ which is injective, bijective, or surjective, respectively.
+    If $X$ and $Y$ are nonempty sets, we define $\card (X) \le \card (Y)$, $\card (X) = \card (Y)$, $\card (X) \ge \card (Y)$ to mean that there exists $f: X \to Y$ which is injective, bijective, or surjective, respectively.
 \end{definition}
 
 \begin{definition}
-A set $X$ is called countable (or denumerable) if $\card (X) \le \card (\N)$.
-And $\card (X) = n$ iff $\card (X) = \card (\{ 1, \dots, n \})$.
+    A set $X$ is called countable (or denumerable) if $\card (X) \le \card (\N)$.
+    And $\card (X) = n$ iff $\card (X) = \card (\{ 1, \dots, n \})$.
 \end{definition}
 
 \begin{proposition}
-If $X$ and $Y$ are countable, so is $X \times Y$.
+    If $X$ and $Y$ are countable, so is $X \times Y$.
 \end{proposition}
 
 \begin{proposition}
-If $A$ is countable and $X_{\alpha}$ is countable for every $\alpha \in A$, then $\cup_{\alpha \in A} X_{\alpha}$ is countable.
+    If $A$ is countable and $X_{\alpha}$ is countable for every $\alpha \in A$, then $\cup_{\alpha \in A} X_{\alpha}$ is countable.
 \end{proposition}
 
 \begin{proposition}
-If $X$ is countably infinite, then $\card(X) = \card(\N)$.
+    If $X$ is countably infinite, then $\card(X) = \card(\N)$.
 \end{proposition}
 
 \begin{proposition}
-$\Z$ and $\Q$ are countable.
+    $\Z$ and $\Q$ are countable.
 \end{proposition}
 
 \begin{definition}
-A set $X$ is said to have the carinality of the continuum if $\card(X) = \card(\R) = \mathfrak{c}$.
+    A set $X$ is said to have the carinality of the continuum if $\card(X) = \card(\R) = \mathfrak{c}$.
 \end{definition}
 
 
 \begin{proposition}
-$\card(\mathcal{P}(\N)) = \mathfrak{c}$.
+    $\card(\mathcal{P}(\N)) = \mathfrak{c}$.
 \end{proposition}
 
 \begin{corollary}
-If $\card(X) \ge \mathfrak{c}$, then $X$ is uncountable.
+    If $\card(X) \ge \mathfrak{c}$, then $X$ is uncountable.
 \end{corollary}
 
 \section{More about well ordered set}
 
 \begin{definition}
-If $x \in X$, the initial segment of $x$ is $I_x = \{ y \in X : y < x \}$.
+    If $x \in X$, the initial segment of $x$ is $I_x = \{ y \in X : y < x \}$.
 \end{definition}
+
+The principle of mathematical induction is equivlent to the fact that $\N$ is well ordered.
+It can be extended to arbitrary well ordered sets as follows:
+
+\begin{theorem}[The Principle of Transfinite Induction]
+    Let $X$ be a well ordered set. 
+    If $A$ is a subset of $X$ such that $x \in A$ whenever $I_x \subset A$, then $A=X$.
+\end{theorem}
+
+\begin{proposition}
+    If $X$ is well ordered and $A \subset X$, then $\bigcup_{x \in A} I_x$ is either an initial segment or $X$ itself. 
+\end{proposition}
+
+\begin{proposition}
+    If $X$ and $Y$ are well ordered, then either $X$ is order isomorphic to $Y$, or $X$ is order isomorphic to an initial segment in $Y$, or an initial segment in $X$ is order isomorphic to $Y$.
+\end{proposition}
+
+\begin{proposition}
+    There is an uncountable well ordered set $\Omega$ such that $I_x$ is countable for each $x \in \Omega$.
+    If $\Omega'$ is another set with the same properties, then $\Omega$ and $\Omega'$ are order isomorphic.
+\end{proposition}
+
+\begin{proposition}
+    Every countable subset of $\Omega$ has an upper bound.
+\end{proposition}
 
 \section{The extended real number system}
 
+\begin{definition}[Extended Real Number System]
+    The extended real number system is $\bar{\R} = \R \cup \{ -\infty, \infty \}$, and to extend the usual ordering on $\R$ by declaring that $-\infty < x < \infty$ for all $x \in \R$.
+    The arithmetical operations on $\R$ can be partially extended to $\bar{\R}$:
+    \begin{align}
+        x \pm \infty &= \pm \infty \quad (x \in \R), \\
+        \infty + \infty &= \infty, \\
+        -\infty -\infty &= -\infty, \\
+        x \cdot (\pm \infty) &= \pm \infty \quad (x > 0), \\
+        x \cdot (\pm \infty) &= \mp \infty \quad (x < 0).
+    \end{align}
+    We make no attempt to define $\infty - \infty$.
+    And unless otherwise stated, 
+    \begin{align}
+        0 \cdot (\pm \infty) = 0.
+    \end{align}
+\end{definition}
+
+\begin{definition}
+    If $X$ is an arbitrary set (may be uncountable), and $f: X \to [0, \infty]$, we define $\sum_{x \in X} f(x)$ to be the supremum of its finite partial sums:
+    \begin{align}
+        \sum_{x \in X} f(x) = \sup \left\{ \sum_{x \in F} f(x): F \subset X, F \text{ is finite} \right\}.
+    \end{align} 
+\end{definition}
+
 \begin{proposition}
-Every open set in $\R$ is a countable disjoint union of open intervals.
+    Given $f: X \to [0, \infty]$, let $A = {x: f(x) > 0}$.
+    If $A$ is uncountable, then $\sum_{x \in X} f(x) = \infty$.
+    If $A$ is countably infinite, then $\sum_{x \in X} f(x) = \sum_{n=1}^{\infty} f(g(n))$ where $g: \N \to A$ is any bijection and the sum on the right is an ordinary infinite series.
 \end{proposition}
+
+\begin{proof}
+    Let $A = \bigcup_{n=1}^{\infty} A_n$ where $A_n = \{ f(x) > 1/n \}$.
+    If $A$ is uncountable, then some $A_n$ must be uncountable by monotonity of $A_n$.
+    And $\sum_{x \in F} f(x) > \frac{\card (F)}{n}$ for a finite subset $F$ of $A_n$.
+    It follows that $\sum_{x \in X} f(x) = \infty$.
+
+    If $A$ is countably infinite, $g: \N \to A$ is a bijection, and $B_N = g(\{ 1, \dots, N \})$, then every finite subset $F$ of $A$ is contained in some $B_N$.
+    Hence, 
+    \begin{align}
+        \sum_{x \in F} f(x) \le \sum_{n=1}^{N} f(g(n)) \le \sum_{x \in X} f(x).
+    \end{align}
+    Taking supremum over $N$, we find
+    \begin{align}
+        \sum_{x \in F} f(x) \le \sum_{n=1}^{\infty} f(g(n)) \le \sum_{x \in X} f(x),
+    \end{align}
+    and then takng the supremum over $F$, we obtain the desired result. 
+\end{proof}
+
+\begin{proposition}
+    Every open set in $\R$ is a countable disjoint union of open intervals.
+\end{proposition}
+
+\begin{proof}
+    TODO
+\end{proof}
 
 \section{Metric spaces}
 
-\begin{definition}[Metric]
-A metric on a set $X$ is a function $\rho : X \times X \to [0, \infty)$ such that 
-\begin{enumerate}
-    \item $\rho(x, y) = 0$ iff $x = y$;
-    \item $\rho(x, y) = \rho(y, x)$ for all $x, y \in X$;
-    \item $\rho(x, z) \le \rho (x, y) + \rho(y, z)$ for all $x, y, z \in X$.
-\end{enumerate}
+\begin{definition}[Metric space]
+    \labdef{metric_space}
+    A metric on a set $X$ is a function $\rho : X \times X \to [0, \infty)$ such that
+    \begin{enumerate}
+        \item $\rho(x, y) = 0$ iff $x = y$;
+        \item $\rho(x, y) = \rho(y, x)$ for all $x, y \in X$;
+        \item $\rho(x, z) \le \rho (x, y) + \rho(y, z)$ for all $x, y, z \in X$.
+    \end{enumerate}
+    A set equipped with a metric is called a metric space, denoted as $(X, \rho)$
+\end{definition}
+
+\begin{definition}
+    Let $(X, \rho)$ be a metric space.
+    If $x \in X$ and $r > 0$, then (open) ball of radius $r$ about $x$ is $B(r, x) = \left\{ y \in X: \rho(x, y) < r \right\}$.
+\end{definition}
+
+\begin{definition}[Open and Closed]
+    Let $(X, \rho)$ be a metric space.
+    A set $E \subset X$ is open if for every $x \in E$ there exists $r > 0$ such that $B(r, x) \subset E$.
+    A set $E \subset X$ is closed if its complement is open. 
+\end{definition}
+
+\begin{definition}
+    If $E \subset X$, the union of all open sets $U \subset E$ is the largest open set contained in $E$; it is called the interior of $E$ and denoted by $E^o$.
+    The intersection of all closed sets $F \supset E$ is the smallest closed set containing $E$; it is called the closure of $E$ and is denoted by $\bar{E}$.
+\end{definition}
+
+\begin{definition}
+    A set $E$ is dense in $X$ if $\bar{E} = X$, and nowhere dense if $E$ has empty interior. 
+\end{definition}
+
+\begin{definition}
+    $X$ is called separable if it has a countable dense subset.
+\end{definition}
+
+\begin{example}
+    $\Q^n$ is a countable dense subset of $\R^n$.
+\end{example}
+
+\begin{definition}
+    A sequence $\{ x_n \}$ in $X$ converges to $x \in X$ (symbolically, $x_n \to x$ or $\lim x_n = x$) if $\lim _{n \to \infty} \rho(x_n, x) = 0$.
+\end{definition}
+
+\begin{definition}[Continuity]
+    \labdef{continuity}
+    If $(X_1, \rho_1)$ and $(X_2, \rho_2)$ are metric spaces, a map $f: X_1 \to X_2$ is called continuous at $x \in X$ if for every $\epsilon > 0$ there exists $\delta > 0$ such that $\rho_2(f(x), f(y)) < \epsilon$ whenever $\rho_1(x, y) < \delta$. 
+    In other words, such that $f^{-1} \left( B(\epsilon, f(x)) \right) \supset B(\delta, x)$.
+    The map $f$ is called continuous if it is continuous at each $x \in X_1$ and uniformly continuous if, in addition, the $\delta$ in the definition of continuity can be chosen independent of $x$.
+\end{definition}
+
+\begin{proposition}
+    $f: X_1 \to X_2$ is continuous iff $f^{-1}(U)$ is open in $X_1$ for every open $U \subset X_2$.
+\end{proposition}
+
+\begin{proof}
+    If the latter condition holds, then for every $x \in X$ and $\epsilon > 0$, then $f^{-1} \left( B(\epsilon, f(x)) \right)$ is open and contains $x$, so ti contains some ball about $x$.
+    This means we can pick a $\delta > 0$ such that $B(\delta, x) \subset f^{-1}\left( B(\epsilon, f(x)) \right)$.
+    So $f$ is continuous by \refdef{continuity}.
+
+    Conversely, suppose $f$ is continuous, and $U$ is open in $X_2$.
+    For each $y \in U$, there exists $\epsilon_y > 0$ such that $B(\epsilon_y, y) \subset U$, and for each $x \in f^{-1}(\{ y \})$, there exhists $\delta_x > 0$ such that 
+    \begin{align}
+        B(\delta_x, x) \subset f^{-1}\left( B(\epsilon, f(x)) \right) \subset f^{-1}(U).
+    \end{align}
+    Thus $f^{-1}(U) = \bigcup_{x \in f^{-1}(U)} B(\delta_x, x)$ is open.
+\end{proof}
+
+\begin{proposition}
+    A closed subset of a complete metric space is complete, and a complete subset of an arbitrary metric space is closed.
+\end{proposition}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{definition}
+    A sequence $\{x_n\}$ in a metric space $(X, \rho)$ is called Cauchy if $\rho(x_n, x_m) \to 0$ as $n, m\to \infty$.
 \end{definition}
 
 \begin{theorem}
-If $E$ is a subset of the metric space $(X, \rho)$, the following are equivalent:
-\begin{enumerate}
-    \item $E$ is complete and totally bounded.
-    \item (The Bolzano-Weierstrass Property) Every sequence in $E$ has a subsequence that converges to a point of $E$.
-    \item (The Heine-Borel Property) If $\{ V_{\alpha} \}_{\alpha \in A}$ is a cover of $E$ by open sets, there is a finite set $F \subset A$ such that $\{ V_{\alpha} \}_{\alpha \in F}$ covers $E$.
-\end{enumerate}
+    If $E$ is a subset of the metric space $(X, \rho)$, the following are equivalent:
+    \begin{enumerate}
+        \item $E$ is complete and totally bounded.
+        \item (The Bolzano-Weierstrass Property) Every sequence in $E$ has a subsequence that converges to a point of $E$.
+        \item (The Heine-Borel Property) If $\{ V_{\alpha} \}_{\alpha \in A}$ is a cover of $E$ by open sets, there is a finite set $F \subset A$ such that $\{ V_{\alpha} \}_{\alpha \in F}$ covers $E$.
+    \end{enumerate}
 \end{theorem}
 
 \begin{theorem}
-Every closed and bounded subset of $\R^n$ is compact.
+    Every closed and bounded subset of $\R^n$ is compact.
 \end{theorem}

@@ -1,0 +1,98 @@
+\setchapterstyle{kao}
+\setchapterpreamble[u]{\margintoc}
+\chapter{Signed Measures and Differentiation}
+\labch{signed_measures}
+
+\section{Signed Measures}
+
+\begin{definition}[Signed Measure]
+    Let $(X, \mathcal{M})$ be a measurable space.
+    A signed measure on $(X, \mathcal{M})$ is a function $\nu: \mathcal{M} \to [-\infty, \infty]$ such that
+    \begin{enumerate}
+        \item $\nu(\emptyset) = 0$;
+        \item $\nu$ assumes at most one of the values $\pm \infty$;
+        \item if $\{ E_j \}$ is a sequence of disjoint sets in $\mathcal{M}$, then $\nu(\bigcup_{j=1}^{\infty} E_j) = \sum_{j=1}^{\infty} \nu(E_j)$ where the latter sum converges absolutely if $\nu(\bigcup_{j=1}^{\infty} E_j)$ is finite.
+    \end{enumerate}
+\end{definition}
+
+Thus every measure is a signed measure; for emphasis we shall sometimes refer to measures as positive measures.
+
+\begin{example}
+    If $\mu_1, \mu_2$ are measures on $\mathcal{M}$ and at least one of them is finite, then $\nu = \mu_1 - \mu_2$ is a signed measure.
+\end{example}
+
+\begin{example}
+    If $\mu$ is a measure on $\mathcal{M}$ and $f: X \to [-\infty, \infty]$ is a measurable function such that at least one of $\int f^+ \dd \mu$ and $\int f^- \dd \mu$ is finite (in which case we shall call $f$ an extended $\mu$-integrable function), then the set function $\nu$ defined by $\nu(E) = \int_{E} f \dd \mu$ is a signed measure.
+\end{example}
+
+\begin{proposition}
+    Let $\nu$ be a signed measure on $(X, \mathcal{M})$.
+    If $\{ E_j \}$ is an increasing sequence in $\mathcal{M}$, then $\nu(\bigcup_{j=1}^{\infty} E_j) = \lim_{j \to \infty} \nu(E_j)$.
+    If $\{ E_j \}$ is a decreasing sequence in $\mathcal{M}$ and $\nu(E_1)$ is finite, then $\nu(\bigcap_{j=1}^{\infty} E_j) = \lim_{j \to \infty} \nu(E_j)$.
+\end{proposition}
+
+\begin{proof}
+    
+\end{proof}
+
+If $\nu$ is a signed measure on $(X, \mathcal{M})$, a set $E \in \mathcal{M}$ is called positive (respectively, negative, null) for $\nu$ if $\nu(F) \ge 0$ (respectively, $\nu(E) \le 0$, $\nu(E) = 0$) for all $F \in \mathcal{M}$ such that $F \subset E$.
+(Thus, in the example $\nu(E) = \int_{E} f \dd \mu$ described above, $E$ is positive, negative, or null precisely when $f \ge 0$, $f \le 0$, or $f = 0$ $\mu$-almost everywhere on $E$.)
+
+
+\begin{lemma}
+    Any measurable subset of a positive set is positive, and the union of any countable family of positive sets is positive.
+\end{lemma}
+
+\begin{proof}
+    The first assertion is obvious from the definition of positivity.
+    If $P_1, P_2, \dots$ are positive sets, let $Q_n = P_n \setminus (\bigcup_{j=1}^{n-1} P_j)$.
+    Then $Q_n \subset P_n$, so $Q_n$ is positive.
+    Hence if $E \subset \bigcup_{j=1}^{\infty} P_j$, then $\nu(E) = \sum_{j=1}^{\infty} \nu(E \cap Q_j) \ge 0$, as desired.
+\end{proof}
+
+\begin{theorem}[The Hahn Decomposition Theorem]
+    If $\nu$ is a signed measure on $(X, \mathcal{M})$, there exist a positive set $P$ and a negative set $N$ for $\nu$ such that $P \cup N = X$ and $P \cap N = \emptyset$.
+    If $P', N'$ is another such pair, then $P \triangle P'$ ($= N \triangle N'$) is null for $\nu$.
+\end{theorem}
+
+\begin{proof}
+    Without loss of generality, we assume that $\nu$ does not assume the value $-\infty$.
+\end{proof}
+
+The decomposition $P \cup N = X$ if $X$ as the disjoint union of a positive set and a negative set is called a Hahn decomposition for $\nu$.
+It is usually not unique ($\nu$-null sets can be transferred from $P$ to $N$ or from $N$ to $P$), but it leads to a canonical representation of $\nu$ as the difference of two positive measures.
+
+\begin{definition}[Mutual Singularity]
+    We say that two signed measures $\mu$ and $\nu$ on $(X, \mathcal{M})$ are mutually singular, or that $\nu$ is singular with respect to $\mu$, or vice versa, if there exist $E, F \in \mathcal{M}$ such that $E \cap F = \emptyset$, $E \cup F = X$, $E$ is null for $\mu$, and $F$ is null for $\nu$.
+    We express this relationship symbolically with the perpendicularity sign $\mu \perp \nu$.
+\end{definition}
+
+Informally speaking, mutual singularity means that $\mu$ and $\nu$ live on disjoint sets.
+
+\begin{theorem}[The Jordan Decomposition Theorem]
+    If $\nu$ is a signed measure, there exist unique positive measures $\nu^+$ and $\nu^-$ such that $\nu = \nu^+ - \nu^-$ and $\nu^+ \perp \nu^-$.
+\end{theorem}
+
+\begin{proof}
+    Let $X = P \cup N$ be a Hahn decomposition for $\nu$, and define $\nu^{+}(E) = \nu(E \cap P)$ and $\nu^{-}(E) = -\nu(E \cap N)$.
+    Then clearly, $\nu = \nu^{+} - \nu^{-}$ and $\nu^+ \perp \nu^-$.
+\end{proof}
+
+
+
+Integration with respect to a signed measure $\nu$ is defined in the obvious way:
+We set $L^{1}(\nu) = L^{1}(\nu^+) \cap L^{1}(\nu^-)$, and for $f \in L^{1}(\nu)$,
+\begin{align}
+    \int f \dd \nu = \int f \dd \nu^+ - \int f \dd \nu^-.
+\end{align}
+
+a signed measure $\nu$ is called finite (respectively, $\sigma$-finite) if $|\nu|$ is finite (respectively, $\sigma$-finite).
+
+\section{The Lebesgue-Radon-Nikodym Theorem}
+
+\begin{definition}[Absolute Continuity]
+    Suppose that $\nu$ is a signed measure and $\mu$ is a positive measure on $(X, \mathcal{M})$.
+    We say that $\nu$ is absolutely continuous with respect to $\mu$ and write $\nu \ll \mu$ if $\nu(E) = 0$ for every $E \in \mathcal{M}$ for which $\mu(E) = 0$.
+\end{definition}
+
+It is easily verified that $\nu \ll \mu$ iff $|\nu| \ll \mu$ iff $\nu^+ \ll \mu$ and $\nu^- \ll \mu$.

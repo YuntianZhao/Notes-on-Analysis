@@ -289,6 +289,7 @@ It can be extended to arbitrary well ordered sets as follows:
 \end{proof}
 
 \begin{proposition}
+    \labprop{open_set_in_R_countable_disjoint_union_of_open_intervals}
     Every open set in $\R$ is a countable disjoint union of open intervals.
 \end{proposition}
 
@@ -349,6 +350,7 @@ It can be extended to arbitrary well ordered sets as follows:
 \end{definition}
 
 \begin{proposition}
+    \labprop{continuous_open}
     $f: X_1 \to X_2$ is continuous iff $f^{-1}(U)$ is open in $X_1$ for every open $U \subset X_2$.
 \end{proposition}
 
@@ -373,9 +375,17 @@ It can be extended to arbitrary well ordered sets as follows:
     
 \end{proof}
 
-\begin{definition}
+\begin{definition}[Cauchy]
     A sequence $\{x_n\}$ in a metric space $(X, \rho)$ is called Cauchy if $\rho(x_n, x_m) \to 0$ as $n, m\to \infty$.
 \end{definition}
+
+\begin{definition}[Complete]
+    A subset $E$ of $X$ is called complete if every Cauchy sequence in $E$ converges and its limit is in $E$.
+\end{definition}
+
+\begin{example}
+    $\R^n$ is complete, whereas $\Q^n$ is not.
+\end{example}
 
 \begin{theorem}
     If $E$ is a subset of the metric space $(X, \rho)$, the following are equivalent:
@@ -385,6 +395,12 @@ It can be extended to arbitrary well ordered sets as follows:
         \item (The Heine-Borel Property) If $\{ V_{\alpha} \}_{\alpha \in A}$ is a cover of $E$ by open sets, there is a finite set $F \subset A$ such that $\{ V_{\alpha} \}_{\alpha \in F}$ covers $E$.
     \end{enumerate}
 \end{theorem}
+
+\begin{definition}[Compact]
+    \labdef{compact}
+    A set $E$ is a subset of the metric space $(X, \rho)$.
+    $E$ is called compact if $E$ is complete and totally bounded.
+\end{definition}
 
 \begin{theorem}
     Every closed and bounded subset of $\R^n$ is compact.
